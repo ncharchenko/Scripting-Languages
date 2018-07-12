@@ -1,0 +1,42 @@
+<html>
+    <body>
+        <h1>Counter.HTML</h1>
+        <p>Please input a string of at least ten characters.</p>
+        <input id="string">
+        <button type="button" onclick="vowelConsonantCount()">Submit</button>
+        <p id="output"></p>
+        <script>
+        function vowelConsonantCount() {
+            debugger;
+            var c = 0;
+            var v = 0;
+            var i;
+            var input;
+            var vowels = 'aeiouAEIOU';
+            input = document.getElementById("string").value;
+            //alert(input);
+            if (input.length < 10) {
+             alert('Input must be at least 10 characters in length.');
+             return false;  
+            }
+            else {
+                for (i = 0; i < 10; i++) {
+                    var current = input.charAt(i);
+                    if (vowels.indexOf(current) != -1) {
+                        if (i % 2 == 0) {
+                           // alert('vowel');
+                            v++;
+                        }
+                    }
+                    else if (i % 2 != 0) {
+                       // alert('not vowel');
+                        c++;
+                    }
+                }
+            }
+            document.getElementById("output").innerHTML="Vowels in even positions: " + v + "<br /> Consonants in odd position: " + c;
+
+        }
+        </script>
+    </body>
+</html>
